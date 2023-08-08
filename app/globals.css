@@ -4,6 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/*
+Cette section réinitialise la marge, le rembourrage et la boîte de formatage pour tous les éléments et définit la police par défaut.
+
+*/
 * {
   margin: 0;
   padding: 0;
@@ -11,10 +16,31 @@
   font-family: "Manrope", sans-serif;
 }
 
+/*
+Cette section contient des classes CSS personnalisées pour la mise en page générale, comme la largeur maximale, les marges, le centrage, etc.
+*/
+
 /* START: General styles */
+
+
+/*
+.max-width: Nom de la classe CSS.
+@apply: Utilisé avec Tailwind CSS pour appliquer des utilitaires.
+max-w-[1440px]: Largeur maximale de 1440 pixels.
+mx-auto: Centrage horizontal automatique.
+
+*/
 .max-width {
   @apply max-w-[1440px] mx-auto;
 }
+
+/*
+.padding-x: Nom de la classe CSS.
+sm:px-16, px-6: Définit le rembourrage horizontal
+(gauche et droite) à 16 unités pour les écrans de taille "small" et plus, 
+et à 6 unités pour les autres tailles.
+
+*/
 
 .padding-x {
   @apply sm:px-16 px-6;
@@ -24,13 +50,43 @@
   @apply py-4;
 }
 
+/*
+
+.flex-center: Nom de la classe CSS.
+flex: Utilise le modèle de boîte flexible.
+items-center: Centre les éléments flex verticalement.
+justify-center: Centre les éléments flex horizontalement.
+
+*/
+
 .flex-center {
   @apply flex items-center justify-center;
 }
 
+/*
+
+.flex-between: Nom de la classe CSS.
+flex: Utilise le modèle de boîte flexible.
+justify-between: Répartit uniformément les éléments flex horizontalement.
+items-center: Centre les éléments flex verticalement.
+
+*/
+
+
 .flex-between {
   @apply flex justify-between items-center;
 }
+
+/*
+
+.custom-btn: Nom de la classe CSS pour un bouton personnalisé.
+flex, flex-row: Utilise le modèle de boîte flexible en orientation de ligne.
+relative: Positionnement relatif.
+justify-center, items-center: Centre les éléments flex horizontalement et verticalement.
+py-3, px-6: Rembourrage vertical de 3 unités et rembourrage horizontal de 6 unités.
+outline-none: Supprime l'outline (contour) lors de la mise au point.
+
+*/
 
 .custom-btn {
   @apply flex flex-row relative justify-center items-center py-3 px-6 outline-none;
@@ -38,6 +94,18 @@
 /* END: General styles */
 
 /* START: Hero styles */
+
+/*
+.hero: Nom de la classe CSS.
+flex: Utilise le modèle de boîte flexible pour la mise en page.
+xl:flex-row, flex-col: Orientation de la flexbox (ligne ou colonne) selon la taille de l'écran.
+gap-5: Espace entre les éléments flex.
+relative: Positionnement relatif.
+z-0: Niveau de superposition (z-index).
+max-w-[1440px]: Largeur maximale de 1440 pixels.
+mx-auto: Centrage horizontal automatique.
+
+*/
 .hero {
   @apply flex xl:flex-row flex-col gap-5 relative z-0 max-w-[1440px] mx-auto;
 }
@@ -58,12 +126,32 @@
   @apply relative xl:w-full w-[90%] xl:h-full h-[590px] z-0;
 }
 
+/* 
+
+absolute: Positionnement absolu par rapport à l'élément parent le plus proche avec une position relative.
+xl:-top-24, xl:-right-1/2, -right-1/4: Définit la position de l'élément en fonction de la taille de l'écran.
+bg-hero-bg: Définit l'image d'arrière-plan (probablement définie ailleurs dans le CSS).
+bg-repeat-round: Répète l'image d'arrière-plan de manière arrondie.
+-z-10: Niveau de superposition (z-index) à -10, ce qui place l'élément sous d'autres éléments.
+w-full: Largeur à 100% de l'élément parent.
+xl:h-screen, h-[590px]: Hauteur définie à 100% de l'écran pour les écrans "extra large" et à 590 pixels pour les autres.
+overflow-hidden: Cache tout contenu débordant de l'élément.
+
+/* 
+
 .hero__image-overlay {
   @apply absolute xl:-top-24 xl:-right-1/2 -right-1/4 bg-hero-bg bg-repeat-round -z-10 w-full xl:h-screen h-[590px] overflow-hidden;
 }
 /* END: Hero styles */
 
 /* START: Home styles */
+
+/* 
+flex, flex-col: Utilise le modèle de boîte flexible en orientation de colonne.
+items-start, justify-start: Aligne les éléments flex au début horizontalement et verticalement.
+gap-y-2.5: Espace vertical de 2,5 unités entre les éléments flex.
+text-black-100: Couleur de texte définie (probablement définie ailleurs dans le CSS).
+*/
 
 .home__text-container {
   @apply flex flex-col items-start justify-start gap-y-2.5 text-black-100;
@@ -76,6 +164,14 @@
 .home__filter-container {
   @apply flex justify-start flex-wrap items-center gap-2;
 }
+
+/* 
+grid: Utilise le modèle de grille CSS.
+2xl:grid-cols-4, xl:grid-cols-3, md:grid-cols-2, grid-cols-1: Définit le nombre de colonnes de grille en fonction de la taille de l'écran.
+w-full: Largeur à 100% de l'élément parent.
+gap-8: Espace de 8 unités entre les éléments de la grille.
+pt-14: Rembourrage supérieur de 14 unités.
+*/
 
 .home__cars-wrapper {
   @apply grid 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full gap-8 pt-14;
@@ -115,6 +211,15 @@
   @apply relative w-full h-40 my-3 object-contain;
 }
 
+/* 
+flex: Utilise le modèle de boîte flexible.
+group-hover:invisible: Rend l'élément invisible lors du survol d'un élément parent avec la classe group.
+w-full: Largeur à 100% de l'élément parent.
+justify-between: Répartit uniformément les éléments flex horizontalement.
+text-grey: Couleur de texte grise (probablement définie ailleurs dans le CSS).
+
+*/
+
 .car-card__icon-container {
   @apply flex group-hover:invisible w-full justify-between text-grey;
 }
@@ -127,12 +232,40 @@
   @apply text-[14px] leading-[17px];
 }
 
+/* 
+hidden: Cache l'élément.
+group-hover:flex: Affiche l'élément comme flex lors du survol d'un élément parent avec la classe group.
+absolute: Positionnement absolu.
+bottom-0: Positionne l'élément au bas de l'élément parent.
+w-full: Largeur à 100% de l'élément parent.
+z-10: Niveau de superposition (z-index) à 10.
+
+*/
+
 .car-card__btn-container {
   @apply hidden group-hover:flex absolute bottom-0 w-full z-10;
 }
 /* END: Car Card styles */
 
 /* START: Car Details styles */
+
+/* 
+relative: Positionnement relatif.
+w-full: Largeur à 100% de l'élément parent.
+max-w-lg: Largeur maximale définie à "large".
+max-h-[90vh]: Hauteur maximale à 90% de la hauteur de la fenêtre.
+overflow-y-auto: Barre de défilement vertical automatique si nécessaire.
+transform: Propriété pour appliquer des transformations (comme la rotation).
+rounded-2xl: Coins arrondis avec un rayon extra-extra-large.
+bg-white: Couleur d'arrière-plan blanche.
+p-6: Rembourrage de 6 unités sur tous les côtés.
+text-left: Alignement du texte à gauche.
+shadow-xl: Ombre extra-large.
+transition-all: Transitions fluides pour toutes les propriétés modifiables.
+flex, flex-col: Utilise le modèle de boîte flexible en orientation de colonne.
+gap-5: Espace de 5 unités entre les éléments flex.
+
+*/
 .car-details__dialog-panel {
   @apply relative w-full max-w-lg max-h-[90vh] overflow-y-auto transform rounded-2xl bg-white p-6 text-left shadow-xl transition-all flex flex-col gap-5;
 }
@@ -147,6 +280,23 @@
 /* END: Car Details styles */
 
 /* START: Custom Filter styles */
+
+/*
+relative: Positionnement relatif.
+w-full: Largeur à 100% de l'élément parent.
+min-w-[127px]: Largeur minimale de 127 pixels.
+flex: Utilise le modèle de boîte flexible.
+justify-between: Répartit uniformément les éléments flex horizontalement.
+items-center: Centre les éléments flex verticalement.
+cursor-default: Curseur par défaut.
+rounded-lg: Coins arrondis avec un rayon large.
+bg-white: Couleur d'arrière-plan blanche.
+py-2, px-3: Rembourrage vertical de 2 unités et rembourrage horizontal de 3 unités.
+text-left: Alignement du texte à gauche.
+shadow-md: Ombre moyenne.
+sm:text-sm: Taille de texte petite pour les écrans de taille "small" et plus.
+border: Bordure standard.
+*/
 .custom-filter__btn {
   @apply relative w-full min-w-[127px] flex justify-between items-center cursor-default rounded-lg bg-white py-2 px-3 text-left shadow-md sm:text-sm border;
 }
